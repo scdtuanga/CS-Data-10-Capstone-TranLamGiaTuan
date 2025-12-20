@@ -56,7 +56,7 @@ if uploaded_file:
 
         if category_col:
             top5 = top_by_category(df.copy(), value_col, category_col)
-            st.subheader(f"🏆 Top theo {category_col}")
+            st.subheader(f"Top theo {category_col}")
             st.dataframe(top5)
         else:
             top5 = pd.DataFrame()
