@@ -1,11 +1,8 @@
 import pandas as pd
 
 def monthly_sales(df, value_col, date_col):
-    # Ép kiểu số cho cột giá trị
     df[value_col] = pd.to_numeric(df[value_col], errors="coerce")
-    # Parse ngày tự động, không chỉ định format
     df[date_col] = pd.to_datetime(df[date_col], errors="coerce")
-    # Lọc dữ liệu hợp lệ
     clean = df[[date_col, value_col]].dropna()
     if clean.empty:
         return pd.DataFrame(columns=["Month", value_col])
